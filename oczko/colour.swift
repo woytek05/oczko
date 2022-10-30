@@ -1,8 +1,6 @@
-//
-//  colour.swift
-//  oczko
-//
-//  Created by Wojciech Wysocki on 29/10/2022.
-//
-
-import Foundation
+enum Colour : String, CaseIterable {
+    case Spades = "♠"
+    case Hearts = "♥"
+    case Clubs = "♣"
+    case Diamonds = "♦"
+}

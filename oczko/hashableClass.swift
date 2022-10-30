@@ -1,8 +1,17 @@
-//
-//  hashableClass.swift
-//  oczko
-//
-//  Created by Wojciech Wysocki on 29/10/2022.
-//
+open class HashableClass {
+    public init() {}
+}
 
-import Foundation
+// MARK: - <Hashable>
+extension HashableClass: Hashable {
+    public func hash(into hasher: inout Hasher) {
+         hasher.combine(ObjectIdentifier(self))
+    }
+}
+
+// MARK: - <Equatable>
+extension HashableClass: Equatable {
+    public static func ==(lhs: HashableClass, rhs: HashableClass) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+}
