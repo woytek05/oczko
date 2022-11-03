@@ -6,12 +6,12 @@ class Game {
     var isUserActive : Bool = true
     var usersPoints : Int = 0
     var usersHand : String = ""
-    var usersCards : [Card] = []
+    var usersCards : Set<Card> = Set<Card>()
     
     var isComputerActive : Bool = true
     var computersPoints : Int = 0
     var computersHand : String = ""
-    var computersCards : [Card] = []
+    var computersCards : Set<Card> = Set<Card>()
     
     init(username : String) {
         self.username = username
@@ -30,7 +30,7 @@ class Game {
             
             self.usersPoints += randomCard.getPoints()
             print("  Σ " + String(self.usersPoints))
-            self.usersCards.append(randomCard)
+            self.usersCards.insert(randomCard)
         } else if player == Player.Computer {
             if (self.computersHand == "") {
                 self.computersHand = printedCard
@@ -41,14 +41,14 @@ class Game {
             
             self.computersPoints += randomCard.getPoints()
             print("  Σ " + String(self.computersPoints))
-            self.computersCards.append(randomCard)
+            self.computersCards.insert(randomCard)
         }
         deck.cards.remove(randomCard)
     }
     
     func usersMove() {
         self.drawCardFromDeck(player: Player.User)
-        print("Wpisz odpowiednie słowo: Dobieram lub Pas")
+        print("Dobieram/Pas: ", terminator: "")
         var decision = ""
         repeat {
             decision = readLine() ?? ""
@@ -58,14 +58,14 @@ class Game {
             case "Pas":
                 self.isUserActive = false
             default:
-                print("Podaj słowo jeszcze raz")
+                print("Podaj słowo jeszcze raz: ", terminator: "")
             }
         } while decision != "Dobieram" && decision != "Pas"
     }
     
     func computersMove() {
         self.drawCardFromDeck(player: Player.Computer)
-        print("Wpisz odpowiednie słowo: Dobieram lub Pas")
+        print("Dobieram/Pas: ", terminator: "")
         let decision = self.getComputersDecision()
         print(decision)
         
@@ -75,7 +75,7 @@ class Game {
         case "Pas":
             self.isComputerActive = false
         default:
-            print("Podaj słowo jeszcze raz")
+            print("Podaj słowo jeszcze raz: ", terminator: "")
         }
     }
     
@@ -84,7 +84,9 @@ class Game {
         var numOfFavorableEvents = 0
         var numOfUnfavorableEvents = 0
         
-        for card in deck.cards {
+        let restOfCards = Deck.getRestOfCards(cards: self.computersCards)
+        
+        for card in restOfCards {
             if card.getPoints() <= restOfPoints {
                 numOfFavorableEvents += 1
             } else {
@@ -92,7 +94,10 @@ class Game {
             }
         }
         
-        if (numOfFavorableEvents >= numOfUnfavorableEvents) {
+        let oddsOfFavorableEvent = Double(numOfFavorableEvents) / Double(restOfCards.count)
+        let oddsOfUnfavorableEvent = Double(numOfUnfavorableEvents) / Double(restOfCards.count)
+        
+        if (oddsOfFavorableEvent >= oddsOfUnfavorableEvent) {
             return "Dobieram"
         } else {
             return "Pas"
@@ -103,7 +108,7 @@ class Game {
         var aces = 0
         if self.usersCards.count == 2 {
             for card in self.usersCards {
-                if card.value.rawValue == "A" {
+                if card.value == Value.Ace {
                     aces += 1
                 }
             }
@@ -115,7 +120,7 @@ class Game {
         aces = 0
         if self.computersCards.count == 2 {
             for card in self.computersCards {
-                if card.value.rawValue == "A" {
+                if card.value == Value.Ace {
                     aces += 1
                 }
             }

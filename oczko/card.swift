@@ -1,7 +1,16 @@
-class Card : HashableClass {
+class Card : Hashable {
     var value : Value
     var colour : Colour
     var points : Int
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        return lhs.value == rhs.value && lhs.colour == rhs.colour
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(value)
+        hasher.combine(colour)
+    }
     
     init(value: Value, colour: Colour) {
         self.value = value

@@ -10,7 +10,6 @@
 		AEB0F4DD290DA2AE001E26E9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0F4DC290DA2AE001E26E9 /* main.swift */; };
 		AEB0F4E4290DA3A5001E26E9 /* card.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0F4E3290DA3A5001E26E9 /* card.swift */; };
 		AEB0F4E6290DA3C4001E26E9 /* deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0F4E5290DA3C4001E26E9 /* deck.swift */; };
-		AEB0F4E8290DA52B001E26E9 /* hashableClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0F4E7290DA52B001E26E9 /* hashableClass.swift */; };
 		AEB0F4EA290DA9B5001E26E9 /* colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0F4E9290DA9B5001E26E9 /* colour.swift */; };
 		AEB0F4EC290DABCF001E26E9 /* value.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0F4EB290DABCF001E26E9 /* value.swift */; };
 		AEB0F4EE290DB062001E26E9 /* scoring.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB0F4ED290DB062001E26E9 /* scoring.swift */; };
@@ -35,7 +34,6 @@
 		AEB0F4DC290DA2AE001E26E9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		AEB0F4E3290DA3A5001E26E9 /* card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = card.swift; sourceTree = "<group>"; };
 		AEB0F4E5290DA3C4001E26E9 /* deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deck.swift; sourceTree = "<group>"; };
-		AEB0F4E7290DA52B001E26E9 /* hashableClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hashableClass.swift; sourceTree = "<group>"; };
 		AEB0F4E9290DA9B5001E26E9 /* colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colour.swift; sourceTree = "<group>"; };
 		AEB0F4EB290DABCF001E26E9 /* value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = value.swift; sourceTree = "<group>"; };
 		AEB0F4ED290DB062001E26E9 /* scoring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scoring.swift; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 				AEB0F4DC290DA2AE001E26E9 /* main.swift */,
 				AEB0F4E3290DA3A5001E26E9 /* card.swift */,
 				AEB0F4E5290DA3C4001E26E9 /* deck.swift */,
-				AEB0F4E7290DA52B001E26E9 /* hashableClass.swift */,
 				AEB0F4E9290DA9B5001E26E9 /* colour.swift */,
 				AEB0F4EB290DABCF001E26E9 /* value.swift */,
 				AEB0F4ED290DB062001E26E9 /* scoring.swift */,
@@ -144,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEB0F4E8290DA52B001E26E9 /* hashableClass.swift in Sources */,
 				AEB0F4EA290DA9B5001E26E9 /* colour.swift in Sources */,
 				AEB0F4DD290DA2AE001E26E9 /* main.swift in Sources */,
 				AEB0F4EC290DABCF001E26E9 /* value.swift in Sources */,

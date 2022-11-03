@@ -14,4 +14,8 @@ class Deck {
             print(card.getPrintedCard())
         }
     }
+    
+    static func getRestOfCards(cards: Set<Card>) -> Set<Card> {
+        return Deck().cards.subtracting(cards)
+    }
 }
